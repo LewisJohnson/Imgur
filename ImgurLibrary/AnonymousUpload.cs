@@ -6,12 +6,19 @@
     using System.Net;
     using System.Text;
 
-    public class AnonymousUpload
+    public static class AnonymousUpload
     {
-        public string UploadImage(string image)
+        public static string UploadImage(string image)
         {
-
-            var base64 = Convert.ToBase64String(File.ReadAllBytes(image));
+            var base64 = "";
+            try
+            {
+                 base64 = Convert.ToBase64String(File.ReadAllBytes(image));
+            }
+            catch (Exception exception)
+            {
+                Console.WriteLine("Image was shit. Failed to convert. " + exception);
+            }
 
             try
             {
@@ -20,10 +27,17 @@
                     client.Headers.Add("Authorization", "Client-ID " + ClientId.ReturnClientId());
                     var data = new NameValueCollection{ ["image"] = base64, ["type"] = "base64" };
                     var responsePayload = client.UploadValues("https://api.imgur.com/3/image/", "POST", data);
-                    return Encoding.ASCII.GetString(responsePayload);
+                    var response = Encoding.ASCII.GetString(responsePayload);
+                    if (response.Contains("true"))
+                    {
+                     Console.WriteLine("Imgur has accepted request. Response: {0}", response);   
+                    }
+                    return response;
 
                 }
             }
+            
+            // ReSharper disable once InconsistentNaming
             catch (Exception ಠ_ಠimgur)
             {
 

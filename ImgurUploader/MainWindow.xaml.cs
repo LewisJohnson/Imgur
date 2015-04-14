@@ -12,7 +12,6 @@
         public MainWindow()
         {
             this.InitializeComponent();
-
         }
 
         private void ImageSelector_OnClick(object sender, RoutedEventArgs routedEventArgs)
@@ -20,12 +19,8 @@
 
             var dlg = new OpenFileDialog
             {
-                DefaultExt = "*.*",
-                Filter = "JPEG Files (*.jpeg) |*.jpeg|" +
-                         "PNG Files  (*.png)  |*.png|" +
-                         "JPG Files  (*.jpg)  |*.jpg|" +
-                         "GIF Files  (*.gif)  |*.gif|" +
-                         "All files  (*.*)    |*.*"
+                DefaultExt = Properties.Resources.Default_File_Extension,
+                Filter = Properties.Resources.FileTypes
             };
 
             bool? result = dlg.ShowDialog();
@@ -42,9 +37,11 @@
 
         private void Upload_OnClick(object sender, RoutedEventArgs e)
         {
-            var uploader = new AnonymousUpload();
-            var linkString = uploader.UploadImage(this.imagestring);
-            this.Link.Content = linkString;
+           // var linkString = AnonymousUpload.UploadImage(this.imagestring);
+           // this.Link.Text = linkString;
+
+            var l = UserAuth.ImgurToken();
+            Console.WriteLine(l);
         }
     }
 }

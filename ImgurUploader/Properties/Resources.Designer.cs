@@ -61,6 +61,24 @@ namespace ImgurUploader.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to *.*.
+        /// </summary>
+        internal static string Default_File_Extension {
+            get {
+                return ResourceManager.GetString("Default_File_Extension", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to JPEG Files (*.jpeg) |*.jpeg|PNG Files  (*.png)  |*.png|JPG Files  (*.jpg)  |*.jpg|GIF Files  (*.gif)  |*.gif|All files  (*.*)    |*.*.
+        /// </summary>
+        internal static string FileTypes {
+            get {
+                return ResourceManager.GetString("FileTypes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Something went wrong..
         /// </summary>
         internal static string Something_went_wrong {
