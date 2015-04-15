@@ -40,8 +40,7 @@
            // var linkString = AnonymousUpload.UploadImage(this.imagestring);
            // this.Link.Text = linkString;
 
-            var l = UserAuth.ImgurToken();
-            Console.WriteLine(l);
+            GetToken.ImgurToken();
         }
     }
 }
