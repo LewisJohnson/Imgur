@@ -1,33 +1,37 @@
-﻿namespace ImgurLibrary.UserActions
-{
-    using System;
-    using System.Collections.Specialized;
-    using System.IO;
-    using System.Net;
-    using System.Text;
+﻿using System;
+using System.Collections.Specialized;
+using System.Diagnostics;
+using System.IO;
+using System.Net;
+using System.Text;
 
+namespace ImgurLibrary.UserActions
+{
     public static class Upload
     {
-        public static string UploadImage(string image, string accessToken, string title = "", string desc = "", string type = "base64")
+        public static string UploadImage(
+            string image,
+            string accessToken,
+            string title = "",
+            string desc = "",
+            string type = "base64")
         {
             var imageBase64 = "";
             if (type == "base64")
             {
-
                 try
                 {
                     imageBase64 = Convert.ToBase64String(File.ReadAllBytes(image));
                 }
                 catch (Exception exception)
                 {
-                    Console.WriteLine("Image was shit. Failed to convert. " + exception);
+                    Debug.WriteLine("Image was shit. Failed to convert. " + exception);
                 }
             }
             else
             {
                 imageBase64 = image;
             }
-
 
             try
             {
@@ -38,24 +42,22 @@
                                                           ["image"] = imageBase64,
                                                           ["title"] = title,
                                                           ["description"] = desc,
-                                                          ["type"] = type,
+                                                          ["type"] = type
                                                       };
-                    var responsePayload = client.UploadValues("https://api.imgur.com/3/image/", "POST", data);
+                    byte[] responsePayload = client.UploadValues("https://api.imgur.com/3/image/", "POST", data);
                     var response = Encoding.ASCII.GetString(responsePayload);
                     if (response.Contains("true"))
                     {
-                        Console.WriteLine("Imgur has accepted request. Response: {0}", response);
+                        Debug.WriteLine("Imgur has accepted request. Response: {0}", response);
                     }
                     return response;
-
                 }
             }
 
                 // ReSharper disable once InconsistentNaming
             catch (Exception ಠ_ಠimgur)
             {
-
-                Console.WriteLine("Something went wrong. " + ಠ_ಠimgur.Message);
+                Debug.WriteLine("Something went wrong. " + ಠ_ಠimgur.Message);
                 return "Failed!" + ಠ_ಠimgur.Message;
             }
         }

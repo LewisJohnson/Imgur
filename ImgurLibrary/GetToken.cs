@@ -1,7 +1,7 @@
-﻿namespace ImgurLibrary
-{
-    using System.Diagnostics;
+﻿using System.Diagnostics;
 
+namespace ImgurLibrary
+{
     public class GetToken
     {
         public static void ImgurToken(string state = "")

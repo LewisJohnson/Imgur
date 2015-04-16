@@ -70,20 +70,20 @@ namespace ImgurUploader.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to JPEG Files (*.jpeg) |*.jpeg|PNG Files  (*.png)  |*.png|JPG Files  (*.jpg)  |*.jpg|GIF Files  (*.gif)  |*.gif|All files  (*.*)    |*.*.
+        ///   Looks up a localized string similar to All Files (*.*)|*.*|JPEG Files (*.jpeg)|*.jpeg|JPG Files  (*.jpg)|*.jpg|PNG Files  (*.png)|*.png|GIF Files  (*.gif)|*.gif|APNG Files (*.apng)|*.apng|TIFF Files (*.tiff)|*.tiff|BMP (*.bmp)|*.bmp|PDF 8==&gt; Files|*.pdf|XCF Files (*.xcf)|*.xcf.
         /// </summary>
-        internal static string FileTypes {
+        internal static string File_Types {
             get {
-                return ResourceManager.GetString("FileTypes", resourceCulture);
+                return ResourceManager.GetString("File_Types", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Something went wrong..
         /// </summary>
-        internal static string Something_went_wrong {
+        internal static string Something_Went_Wrong {
             get {
-                return ResourceManager.GetString("Something_went_wrong", resourceCulture);
+                return ResourceManager.GetString("Something_Went_Wrong", resourceCulture);
             }
         }
     }

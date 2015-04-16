@@ -1,19 +1,18 @@
-﻿namespace ImgurUploader
+﻿using System.Windows;
+using MahApps.Metro;
+
+namespace ImgurUploader
 {
-    using System.Windows;
-
-    using MahApps.Metro;
-
     /// <summary>
     /// Interaction logic for App.xaml
     /// </summary>
-    public partial class App : Application
+    public partial class App
     {
 
         protected override void OnStartup(StartupEventArgs e)
         {
 
-            var globaltheme = ThemeManager.DetectAppStyle(Current);
+            //var globaltheme = ThemeManager.DetectAppStyle(Current);
 
             ThemeManager.ChangeAppStyle(
                 Current,

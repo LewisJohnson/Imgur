@@ -1,47 +1,55 @@
-﻿namespace ImgurUploader
-{
-    using System;
-    using System.Windows;
-    using Microsoft.Win32;
-    using ImgurLibrary;
+﻿using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using MahApps.Metro.Controls;
+using MahApps.Metro.Controls.Dialogs;
 
-    public partial class MainWindow
+namespace ImgurUploader
+{
+    public partial class MainWindow : MetroWindow
     {
-        private string imagestring = "";
 
         public MainWindow()
         {
-            this.InitializeComponent();
+            InitializeComponent();
         }
 
-        private void ImageSelector_OnClick(object sender, RoutedEventArgs routedEventArgs)
+        private void MetroWindow_Initialized(object sender, EventArgs e)
         {
-
-            var dlg = new OpenFileDialog
+            var list = new ObservableCollection<string>
             {
-                DefaultExt = Properties.Resources.Default_File_Extension,
-                Filter = Properties.Resources.FileTypes
+                "Test",
+                "Test",
+                "Test",
+                "Test",
+                "Test",
+                "Test",
+                "Test",
+                "Test",
+                "Test",
+                "Test",
+                "Test",
+                "Test",
+                "Test",
+                "Test",
+                "Test",
+                "Test",
+                "Test",
+                "Test",
+                "Test",
+                "Test",
+                "Test",
+                "Test",
+                "Test"
             };
 
-            bool? result = dlg.ShowDialog();
-
-            if (result == true)
-            {
-                this.imagestring = dlg.FileName;
-            }
-            else
-            {
-                Console.WriteLine(Properties.Resources.Something_went_wrong);
-            }
+            ListBox.ItemsSource = list;
+            MainFrame.NavigationService.Navigate(new Pages.AnonUpload());
         }
 
-        private void Upload_OnClick(object sender, RoutedEventArgs e)
-        {
-           // var linkString = AnonymousUpload.UploadImage(this.imagestring);
-           // this.Link.Text = linkString;
 
-            GetToken.ImgurToken();
-        }
     }
 }
+
+
 

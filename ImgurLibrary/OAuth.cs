@@ -1,13 +1,13 @@
-﻿namespace ImgurLibrary
-{
-    using System;
-    using System.Collections.Generic;
-    using System.IO;
-    using System.Linq;
-    using System.Net;
-    using System.Security.Cryptography;
-    using System.Text;
+﻿using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Net;
+using System.Security.Cryptography;
+using System.Text;
 
+namespace ImgurLibrary
+{
     public class OAuth
     {
         public class Manager
@@ -15,13 +15,13 @@
 
             public Manager()
             {
-                this.random = new Random();
-                this._params = new Dictionary<string, string>{
+                random = new Random();
+                _params = new Dictionary<string, string>{
                         ["callback"] = "oob",
                         ["consumer_key"] = "",
                         ["consumer_secret"] = "",
                         ["timestamp"] = GenerateTimeStamp(),
-                        ["nonce"] = this.GenerateNonce(),
+                        ["nonce"] = GenerateNonce(),
                         ["signature_method"] = "HMAC-SHA1",
                         ["signature"] = "",
                         ["token"] = "",
@@ -34,23 +34,23 @@
                 : this()
 
             {
-                this._params["consumer_key"] = consumerKey;
-                this._params["consumer_secret"] = consumerSecret;
-                this._params["token"] = token;
-                this._params["token_secret"] = tokenSecret;
+                _params["consumer_key"] = consumerKey;
+                _params["consumer_secret"] = consumerSecret;
+                _params["token"] = token;
+                _params["token_secret"] = tokenSecret;
             }
 
             public string this[string ix]
             {
                 private get
                 {
-                    if (this._params.ContainsKey(ix)) return this._params[ix];
+                    if (_params.ContainsKey(ix)) return _params[ix];
                     throw new ArgumentException(ix);
                 }
                 set
                 {
-                    if (!this._params.ContainsKey(ix)) throw new ArgumentException(ix);
-                    this._params[ix] = value;
+                    if (!_params.ContainsKey(ix)) throw new ArgumentException(ix);
+                    _params[ix] = value;
                 }
             }
 
@@ -63,8 +63,8 @@
 
             private void NewRequest()
             {
-                this._params["nonce"] = this.GenerateNonce();
-                this._params["timestamp"] = GenerateTimeStamp();
+                _params["nonce"] = GenerateNonce();
+                _params["timestamp"] = GenerateTimeStamp();
             }
 
             private string GenerateNonce()
@@ -72,16 +72,16 @@
                 var sb = new StringBuilder();
                 for (var i = 0; i < 8; i++)
                 {
-                    var g = this.random.Next(3);
+                    var g = random.Next(3);
                     switch (g)
                     {
                         case 0:
                             // lowercase alpha
-                            sb.Append((char)(this.random.Next(26) + 97), 1);
+                            sb.Append((char)(random.Next(26) + 97), 1);
                             break;
                         default:
                             // numeric digits
-                            sb.Append((char)(this.random.Next(10) + 48), 1);
+                            sb.Append((char)(random.Next(10) + 48), 1);
                             break;
                     }
                 }
@@ -146,8 +146,8 @@
 
             public OAuthResponse AcquireRequestToken(string uri, string method)
             {
-                this.NewRequest();
-                var authzHeader = this.GetAuthorizationHeader(uri, method);
+                NewRequest();
+                var authzHeader = GetAuthorizationHeader(uri, method);
 
                 // prepare the token request
                 var request = (HttpWebRequest)WebRequest.Create(uri);
@@ -177,10 +177,10 @@
 
             public OAuthResponse AcquireAccessToken(string uri, string method, string pin)
             {
-                this.NewRequest();
-                this._params["verifier"] = pin;
+                NewRequest();
+                _params["verifier"] = pin;
 
-                var authzHeader = this.GetAuthorizationHeader(uri, method);
+                var authzHeader = GetAuthorizationHeader(uri, method);
 
                 // prepare the token request
                 var request = (HttpWebRequest)WebRequest.Create(uri);
@@ -202,41 +202,41 @@
 
             public string GenerateCredsHeader(string uri, string method, string realm)
             {
-                this.NewRequest();
-                var authzHeader = this.GetAuthorizationHeader(uri, method, realm);
+                NewRequest();
+                var authzHeader = GetAuthorizationHeader(uri, method, realm);
                 return authzHeader;
             }
 
 
             public string GenerateAuthzHeader(string uri, string method)
             {
-                this.NewRequest();
-                var authzHeader = this.GetAuthorizationHeader(uri, method, null);
+                NewRequest();
+                var authzHeader = GetAuthorizationHeader(uri, method, null);
                 return authzHeader;
             }
 
             private string GetAuthorizationHeader(string uri, string method)
             {
-                return this.GetAuthorizationHeader(uri, method, null);
+                return GetAuthorizationHeader(uri, method, null);
             }
 
             private string GetAuthorizationHeader(string uri, string method, string realm)
             {
-                if (string.IsNullOrEmpty(this._params["consumer_key"])) throw new ArgumentNullException("consumer_key");
+                if (string.IsNullOrEmpty(_params["consumer_key"])) throw new ArgumentNullException("consumer_key");
 
-                if (string.IsNullOrEmpty(this._params["signature_method"])) throw new ArgumentNullException("signature_method");
+                if (string.IsNullOrEmpty(_params["signature_method"])) throw new ArgumentNullException("signature_method");
 
-                this.Sign(uri, method);
+                Sign(uri, method);
 
-                var erp = EncodeRequestParameters(this._params);
+                var erp = EncodeRequestParameters(_params);
                 return (string.IsNullOrEmpty(realm)) ? "OAuth " + erp : $"OAuth realm=\"{realm}\", " + erp;
             }
 
 
             private void Sign(string uri, string method)
             {
-                var signatureBase = this.GetSignatureBase(uri, method);
-                var hash = this.GetHash();
+                var signatureBase = GetSignatureBase(uri, method);
+                var hash = GetHash();
 
                 var dataBuffer = Encoding.ASCII.GetBytes(signatureBase);
                 var hashBytes = hash.ComputeHash(dataBuffer);
@@ -260,13 +260,13 @@
                 // the parameters follow - all oauth params plus any params on
                 // the uri
                 // each uri may have a distinct set of query params
-                var p = this.ExtractQueryParameters(uri.Query);
+                var p = ExtractQueryParameters(uri.Query);
                 // add all non-empty params to the "current" params
                 foreach (
                     var p1 in
-                        this._params.Where(
+                        _params.Where(
                             p1 =>
-                            !string.IsNullOrEmpty(this._params[p1.Key]) && !p1.Key.EndsWith("_secret")
+                            !string.IsNullOrEmpty(_params[p1.Key]) && !p1.Key.EndsWith("_secret")
                             && !p1.Key.EndsWith("signature")))
                 {
                     p.Add("oauth_" + p1.Key, p1.Value);
@@ -313,16 +313,16 @@
 
             private readonly Dictionary<string, string> _params;
 
-            public string this[string ix] => this._params[ix];
+            public string this[string ix] => _params[ix];
 
             public OAuthResponse(string alltext)
             {
-                this.AllText = alltext;
-                this._params = new Dictionary<string, string>();
+                AllText = alltext;
+                _params = new Dictionary<string, string>();
                 var kvpairs = alltext.Split('&');
                 foreach (var kv in kvpairs.Select(pair => pair.Split('=')))
                 {
-                    this._params.Add(kv[0], kv[1]);
+                    _params.Add(kv[0], kv[1]);
                 }
                 // expected keys:
                 //   oauth_token, oauth_token_secret, user_id, screen_name, etc

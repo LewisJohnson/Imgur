@@ -50,6 +50,8 @@
     <Compile Include="ImgurToken.cs" />
     <Compile Include="OAuth.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ResponseParse.cs" />
+    <Compile Include="SupportedFileType.cs" />
     <Compile Include="UserActions\Upload.cs" />
     <Compile Include="UserAuth.cs" />
   </ItemGroup>
