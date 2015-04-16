@@ -17,7 +17,7 @@ namespace ImgurUploader
             ThemeManager.ChangeAppStyle(
                 Current,
                 ThemeManager.GetAccent("Cyan"),
-                ThemeManager.GetAppTheme("BaseDark"));
+                ThemeManager.GetAppTheme("BaseLight"));
 
             base.OnStartup(e);
         }

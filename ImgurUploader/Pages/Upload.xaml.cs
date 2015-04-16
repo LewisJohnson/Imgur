@@ -4,8 +4,6 @@ using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media.Imaging;
-using MahApps.Metro.Controls;
-using MahApps.Metro.Controls.Dialogs;
 using ImgurLibrary;
 using Microsoft.Win32;
 
@@ -14,9 +12,9 @@ namespace ImgurUploader.Pages
     /// <summary>
     /// Interaction logic for AnonUpload.xaml
     /// </summary>
-    public partial class AnonUpload
+    public partial class Upload
     {
-        public AnonUpload()
+        public Upload()
         {
 
             InitializeComponent();

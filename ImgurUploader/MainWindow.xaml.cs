@@ -1,53 +1,32 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
+using System.Windows;
+using ImgurLibrary;
+using ImgurUploader.Pages;
 using MahApps.Metro.Controls;
-using MahApps.Metro.Controls.Dialogs;
 
 namespace ImgurUploader
 {
     public partial class MainWindow : MetroWindow
     {
-
         public MainWindow()
         {
             InitializeComponent();
         }
 
-        private void MetroWindow_Initialized(object sender, EventArgs e)
+        private void Authorise_OnMouseDown(object sender, RoutedEventArgs e)
         {
-            var list = new ObservableCollection<string>
-            {
-                "Test",
-                "Test",
-                "Test",
-                "Test",
-                "Test",
-                "Test",
-                "Test",
-                "Test",
-                "Test",
-                "Test",
-                "Test",
-                "Test",
-                "Test",
-                "Test",
-                "Test",
-                "Test",
-                "Test",
-                "Test",
-                "Test",
-                "Test",
-                "Test",
-                "Test",
-                "Test"
-            };
-
-            ListBox.ItemsSource = list;
-            MainFrame.NavigationService.Navigate(new Pages.AnonUpload());
+            MainFrame.NavigationService.Navigate(new Authorise());
         }
 
+        private void Account_OnMouseDown(object sender, RoutedEventArgs e)
+        {
+            MainFrame.Source = new Uri(GetToken.ImgurToken());
+        }
 
+        private void Upload_OnMouseDown(object sender, RoutedEventArgs e)
+        {
+            MainFrame.NavigationService.Navigate(new Upload());
+        }
     }
 }
 

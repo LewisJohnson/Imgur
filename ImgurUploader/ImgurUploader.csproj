@@ -75,7 +75,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Pages\AnonUpload.xaml">
+    <Page Include="Pages\Authorise.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Upload.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Resources\Icons.xaml">
@@ -83,8 +86,11 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Pages\AnonUpload.xaml.cs">
-      <DependentUpon>AnonUpload.xaml</DependentUpon>
+    <Compile Include="Pages\Authorise.xaml.cs">
+      <DependentUpon>Authorise.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Upload.xaml.cs">
+      <DependentUpon>Upload.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
