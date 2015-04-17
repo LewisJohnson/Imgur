@@ -1,15 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Diagnostics;
-using System.IO;
 using System.Net;
 using System.Text;
-using static System.String;
 
 namespace ImgurLibrary
 {
-    public class GetToken
+    public class Authorise
     {
 
         public static string ImgurToken(string pin, string format = "xml")
@@ -28,7 +25,7 @@ namespace ImgurLibrary
                         ["pin"] = pin,
                         ["_format"] = format
                     };
-                    byte[] responsePayload = client.UploadValues("https://api.imgur.com/oauth2/token", "POST", data);
+                    var responsePayload = client.UploadValues("https://api.imgur.com/oauth2/token", "POST", data);
                     var response = Encoding.ASCII.GetString(responsePayload);
                     Debug.WriteLine(response);
 
@@ -45,11 +42,11 @@ namespace ImgurLibrary
 
 
 
-        public static void ImgurPin()
+        public static string ImgurPin()
         {
-            const string url = "https://api.imgur.com/oauth2/authorize?client_id={0}&response_type={1}";
-            var finalurl = Format(url, GetClientInfo.ClientId, "pin");
-            Process.Start(finalurl);
+            const string url = "https://api.imgur.com/oauth2/authorize?client_id={0}&response_type=pin";
+            var finalurl = string.Format(url, GetClientInfo.ClientId);
+            return finalurl;
         }
     }
 }

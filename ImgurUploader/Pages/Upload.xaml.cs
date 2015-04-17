@@ -9,9 +9,7 @@ using Microsoft.Win32;
 
 namespace ImgurUploader.Pages
 {
-    /// <summary>
-    /// Interaction logic for AnonUpload.xaml
-    /// </summary>
+
     public partial class Upload
     {
         public Upload()

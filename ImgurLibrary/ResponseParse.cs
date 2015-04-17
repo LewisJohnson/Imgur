@@ -36,9 +36,7 @@ namespace ImgurLibrary
                 { "Link"       , link?.Value },
                 { "Account"    , accountUrl?.Value }
             };
-
-            Debug.WriteLine("\n" + returnDic);
-
+            
             foreach (var item in returnDic)
             {
                 Debug.WriteLine(item);
@@ -70,8 +68,6 @@ namespace ImgurLibrary
                 { "Username"        , accountUsername?.Value },
                 { "Account ID"      , accountId?.Value },
             };
-
-            Debug.WriteLine("\n" + returnDic);
 
             foreach (var item in returnDic)
             {

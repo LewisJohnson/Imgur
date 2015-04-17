@@ -7,7 +7,7 @@ using MahApps.Metro.Controls;
 
 namespace ImgurUploader
 {
-    public partial class MainWindow : MetroWindow
+    public partial class MainWindow
     {
         public MainWindow()
         {
@@ -16,16 +16,16 @@ namespace ImgurUploader
 
         private void Authorise_OnMouseDown(object sender, RoutedEventArgs e)
         {
-            MainFrame.NavigationService.Navigate(new Authorise());
+            MainFrame.NavigationService.Navigate(new Pages.Authorise());
         }
 
         private void Account_OnMouseDown(object sender, RoutedEventArgs e)
         {
-            GetToken.ImgurPin();
+            ImgurLibrary.Authorise.ImgurPin();
 
             Console.Write("s");
             var pin = "c6e9e36cc8";
-            var response = GetToken.ImgurToken(pin);
+            var response = ImgurLibrary.Authorise.ImgurToken(pin);
             var responseDictionary = ResponseParse.Account(response);
             var holder = responseDictionary.Aggregate("", (current, item) => current + (item + "\n"));
 

@@ -1,9 +1,17 @@
 ﻿<Page x:Class="ImgurUploader.Pages.Authorise"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls"
-      mc:Ignorable="d" 
-      d:DesignHeight="400" d:DesignWidth="500" FontFamily="Segoe UI Light"/>
+      mc:Ignorable="d" FontFamily="Segoe UI Light" Initialized="Page_Initialized" Height="470" Width="685">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" MinHeight="417"/>
+            <RowDefinition Height="Auto" MinHeight="53"/>
+        </Grid.RowDefinitions>
+        <Frame x:Name="WebBrowser" HorizontalAlignment="Left" Height="417" VerticalAlignment="Top" Width="685" Grid.Row="0"/>
+        <TextBox  controls:TextBoxHelper.Watermark="Imgur pin" controls:TextBoxHelper.ClearTextButton="True" x:Name="PinBox" Margin="150,10,190,10" Grid.Row="1" TextWrapping="Wrap"  FontFamily="Segoe UI" FontSize="18.667"/>
+        <Button x:Name="button" Content="✓" HorizontalAlignment="Left" Margin="495,10,0,0" VerticalAlignment="Top" Width="33" Grid.Row="1" Height="33" Click="button_Click"/>
+    </Grid>
+</Page>
