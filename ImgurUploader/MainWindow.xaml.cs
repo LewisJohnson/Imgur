@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Windows;
 using ImgurLibrary;
 using ImgurUploader.Pages;
@@ -20,7 +21,16 @@ namespace ImgurUploader
 
         private void Account_OnMouseDown(object sender, RoutedEventArgs e)
         {
-            MainFrame.Source = new Uri(GetToken.ImgurToken());
+            GetToken.ImgurPin();
+
+            Console.Write("s");
+            var pin = "c6e9e36cc8";
+            var response = GetToken.ImgurToken(pin);
+            var responseDictionary = ResponseParse.Account(response);
+            var holder = responseDictionary.Aggregate("", (current, item) => current + (item + "\n"));
+
+
+
         }
 
         private void Upload_OnMouseDown(object sender, RoutedEventArgs e)

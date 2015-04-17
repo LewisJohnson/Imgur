@@ -20,7 +20,7 @@ namespace ImgurLibrary.AnonActions
                 }
                 catch (Exception exception)
                 {
-                    Debug.WriteLine("Image was shit. Failed to convert. " + exception);
+                    Debug.WriteLine("Image was shit. Failed to convert." + exception);
                 }
             }
             else
@@ -32,7 +32,7 @@ namespace ImgurLibrary.AnonActions
             {
                 using (var client = new WebClient())
                 {
-                    client.Headers.Add("Authorization", "Client-ID " + GetClientInfo.ClientId());
+                    client.Headers.Add("Authorization", "Client-ID " + GetClientInfo.ClientId);
                     var data = new NameValueCollection
                     {
                         ["image"] = imageBase64,
