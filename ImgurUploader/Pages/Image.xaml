@@ -1,0 +1,35 @@
+﻿<Page x:Class="ImgurUploader.Pages.Image"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+
+      mc:Ignorable="d" 
+      d:DesignHeight="400" d:DesignWidth="500" FontFamily="Segoe UI Light">
+
+    <Grid x:Name="MainGrid" HorizontalAlignment="Left" Height="400" VerticalAlignment="Top" Width="500">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="48*" />
+            <RowDefinition Height="15*" />
+            <RowDefinition Height="17*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="100*"/>
+            <ColumnDefinition MinWidth="1"/>
+            <ColumnDefinition Width="299*" />
+            <ColumnDefinition Width="100*"/>
+            <ColumnDefinition Width="0*"/>
+        </Grid.ColumnDefinitions>
+        <Border BorderBrush="Black" BorderThickness="1" Grid.Column="2" HorizontalAlignment="Left" Height="170" Margin="0,20,0,0" VerticalAlignment="Top" Width="299">
+            <Image x:Name="image"/>
+        </Border>
+        <Label Content="Link" HorizontalAlignment="Left" Grid.Row="1" Grid.Column="0" VerticalAlignment="Top" Height="40" Width="70" FontSize="21.333" Margin="0,5,0,0"/>
+        <Label Content="Delete &#xD;&#xA;hash" HorizontalAlignment="Left" Grid.Row="2" Grid.Column="0"
+               VerticalAlignment="Top" Height="65" Width="90" FontSize="21.333" Margin="0,10,0,0"/>
+        <Label x:Name="Link_box" Content="" HorizontalAlignment="Left" Grid.Row="1" VerticalAlignment="Top" Height="60" Width="280" FontSize="13.333" Margin="9,5,0,0" Grid.Column="2"/>
+        <Label x:Name="Delete_box" Content="" HorizontalAlignment="Left" Grid.Row="2" VerticalAlignment="Top" Height="65" Width="279" FontSize="13.333" Margin="9,10,0,0" Grid.Column="2"/>
+
+
+
+    </Grid>
+</Page>

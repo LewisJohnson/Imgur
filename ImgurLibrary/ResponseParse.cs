@@ -26,8 +26,8 @@ namespace ImgurLibrary
             var accountUrl  = data.Element("account_url");
 
             var returnDic      = new Dictionary<string, string>{
-                {"success"      , success.Value },
-                {"status"       , status.Value },
+                { "success"      , success.Value },
+                { "status"       , status.Value },
                 { "Id"          , id?.Value },
                 { "Title"       , title?.Value },
                 { "Description" , description?.Value },

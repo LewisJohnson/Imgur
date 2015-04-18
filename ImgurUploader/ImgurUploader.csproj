@@ -78,6 +78,9 @@
     <Page Include="Pages\Authorise.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\Image.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\Upload.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -88,6 +91,9 @@
   <ItemGroup>
     <Compile Include="Pages\Authorise.xaml.cs">
       <DependentUpon>Authorise.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Image.xaml.cs">
+      <DependentUpon>Image.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\Upload.xaml.cs">
       <DependentUpon>Upload.xaml</DependentUpon>
