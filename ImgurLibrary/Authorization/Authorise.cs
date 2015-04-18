@@ -4,7 +4,7 @@ using System.Diagnostics;
 using System.Net;
 using System.Text;
 
-namespace ImgurLibrary
+namespace ImgurLibrary.Authorization
 {
     public class Authorise
     {

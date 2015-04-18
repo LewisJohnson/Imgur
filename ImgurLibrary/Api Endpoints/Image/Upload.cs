@@ -5,7 +5,7 @@ using System.IO;
 using System.Net;
 using System.Text;
 
-namespace ImgurLibrary.AnonActions
+namespace ImgurLibrary.Api_Endpoints.Image
 {
     public static class Upload
     {
@@ -20,7 +20,7 @@ namespace ImgurLibrary.AnonActions
                 }
                 catch (Exception exception)
                 {
-                    Debug.WriteLine("Image was shit. Failed to convert." + exception);
+                    Debug.WriteLine("Failed to convert image." + exception);
                 }
             }
             else
@@ -41,7 +41,7 @@ namespace ImgurLibrary.AnonActions
                         ["type"] = type,
                         ["_format"] = format
                     };
-                    byte[] responsePayload = client.UploadValues("https://api.imgur.com/3/image/", "POST", data);
+                    var responsePayload = client.UploadValues("https://api.imgur.com/3/image/", "POST", data);
                     var response = Encoding.ASCII.GetString(responsePayload);
                     if (response.Contains("true"))
                     {
@@ -53,8 +53,8 @@ namespace ImgurLibrary.AnonActions
 
             catch (Exception ಠ_ಠimgur)
             {
-                Debug.WriteLine("Something went wrong. " + ಠ_ಠimgur.Message);
-                return "Failed! " + ಠ_ಠimgur.Message;
+                Debug.WriteLine("Something went wrong: " + ಠ_ಠimgur.Message);
+                return "Failed to upload image. Server response: " + ಠ_ಠimgur.Message;
             }
         }
     }

@@ -44,14 +44,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Api Endpoints\Image\Delete.cs" />
+    <Compile Include="Api Endpoints\Image\UpdateInfo.cs" />
     <Compile Include="GetClientInfo.cs" />
-    <Compile Include="Authorise.cs" />
-    <Compile Include="AnonActions\Upload.cs" />
+    <Compile Include="Authorization\Authorise.cs" />
+    <Compile Include="Api Endpoints\Image\Upload.cs" />
     <Compile Include="ImgurToken.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ResponseParse.cs" />
     <Compile Include="SupportedFileType.cs" />
-    <Compile Include="UserActions\Upload.cs" />
+    <Compile Include="Api Endpoints\Account\Upload.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Api Endpoints\Album\" />
+    <Folder Include="Api Endpoints\Comment\" />
+    <Folder Include="Api Endpoints\Conversation\" />
+    <Folder Include="Api Endpoints\Custom Gallery\" />
+    <Folder Include="Api Endpoints\Gallery\" />
+    <Folder Include="Api Endpoints\Notification\" />
+    <Folder Include="Api Endpoints\Topic\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

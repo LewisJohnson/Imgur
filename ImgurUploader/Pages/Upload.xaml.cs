@@ -96,7 +96,7 @@ namespace ImgurUploader.Pages
             }
             if (SupportedFileType.CheckAgainstFormat(_imagestring))
             {
-                var response = ImgurLibrary.AnonActions.Upload.UploadImage(_imagestring, TitleTextBox.Text, DescTextBox.Text, _type);
+                var response = ImgurLibrary.Api_Endpoints.Image.Upload.UploadImage(_imagestring, TitleTextBox.Text, DescTextBox.Text, _type);
                 var responseDictionary = ResponseParse.Image(response);
                 var holder = responseDictionary.Aggregate("", (current, item) => current + (item + "\n"));
                 DescTextBox.Text = holder;

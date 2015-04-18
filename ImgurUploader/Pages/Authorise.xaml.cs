@@ -14,14 +14,14 @@ namespace ImgurUploader.Pages
 
         private void Page_Initialized(object sender, EventArgs e)
         {
-            WebBrowser.Source = new Uri(ImgurLibrary.Authorise.ImgurPin());
+            WebBrowser.Source = new Uri(ImgurLibrary.Authorization.Authorise.ImgurPin());
 
         }
 
 
         private void button_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-            var res = ImgurLibrary.Authorise.ImgurToken(PinBox.Text);
+            var res = ImgurLibrary.Authorization.Authorise.ImgurToken(PinBox.Text);
             var account = ImgurLibrary.ResponseParse.Account(res);
 
         }

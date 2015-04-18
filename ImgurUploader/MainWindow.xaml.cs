@@ -1,9 +1,5 @@
-﻿using System;
-using System.Linq;
-using System.Windows;
-using ImgurLibrary;
+﻿using System.Windows;
 using ImgurUploader.Pages;
-using MahApps.Metro.Controls;
 
 namespace ImgurUploader
 {
@@ -16,19 +12,11 @@ namespace ImgurUploader
 
         private void Authorise_OnMouseDown(object sender, RoutedEventArgs e)
         {
-            MainFrame.NavigationService.Navigate(new Pages.Authorise());
+            MainFrame.NavigationService.Navigate(new Authorise());
         }
 
         private void Account_OnMouseDown(object sender, RoutedEventArgs e)
         {
-            ImgurLibrary.Authorise.ImgurPin();
-
-            Console.Write("s");
-            var pin = "c6e9e36cc8";
-            var response = ImgurLibrary.Authorise.ImgurToken(pin);
-            var responseDictionary = ResponseParse.Account(response);
-            var holder = responseDictionary.Aggregate("", (current, item) => current + (item + "\n"));
-
 
 
         }
