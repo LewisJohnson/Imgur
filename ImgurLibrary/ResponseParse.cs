@@ -26,15 +26,15 @@ namespace ImgurLibrary
             var accountUrl  = data.Element("account_url");
 
             var returnDic      = new Dictionary<string, string>{
-                {"success"     , success.Value },
-                {"status"      , status.Value },
-                { "Id"         , id?.Value },
-                { "Title"      , title?.Value },
-                { "Description", description?.Value },
-                { "DateTime"   , datetime?.Value },
-                { "Deletehash" , deletehash?.Value },
-                { "Link"       , link?.Value },
-                { "Account"    , accountUrl?.Value }
+                {"success"      , success.Value },
+                {"status"       , status.Value },
+                { "Id"          , id?.Value },
+                { "Title"       , title?.Value },
+                { "Description" , description?.Value },
+                { "DateTime"    , datetime?.Value },
+                { "Deletehash"  , deletehash?.Value },
+                { "Link"        , link?.Value },
+                { "Account"     , accountUrl?.Value }
             };
             
             foreach (var item in returnDic)
@@ -53,20 +53,20 @@ namespace ImgurLibrary
             var data = XElement.Load(responseReader);
 
 
-            var accessToken = data.Element("access_token");
-            var expireTime = data.Element("expires_in");
-            var tokenType = data.Element("token_type");
-            var refreshToken = data.Element("refresh_token");
+            var accessToken     = data.Element("access_token");
+            var expireTime      = data.Element("expires_in");
             var accountUsername = data.Element("account_username");
-            var accountId = data.Element("account_id");
+            var tokenType       = data.Element("token_type");
+            var refreshToken    = data.Element("refresh_token");
+
 
             var returnDic = new Dictionary<string, string>{
-                { "Access Token"    , accessToken?.Value },
-                { "Expire Time"     , expireTime?.Value },
-                { "Token Type"      , tokenType?.Value },
-                { "Refresh Token"   , refreshToken?.Value },
-                { "Username"        , accountUsername?.Value },
-                { "Account ID"      , accountId?.Value },
+                { "Access_Token"    , accessToken?.Value },
+                { "Expire_Time"     , expireTime?.Value },
+                { "Account_Username", accountUsername?.Value },
+                { "Token_Type"      , tokenType?.Value },
+                { "Refresh_Token"   , refreshToken?.Value },
+
             };
 
             foreach (var item in returnDic)
