@@ -14,20 +14,21 @@
             <RowDefinition Height="17*" />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="100*"/>
-            <ColumnDefinition MinWidth="1"/>
-            <ColumnDefinition Width="299*" />
-            <ColumnDefinition Width="100*"/>
+            <ColumnDefinition Width="20*"/>
+            <ColumnDefinition MinWidth="1" Width="19*"/>
+            <ColumnDefinition Width="41*"/>
+            <ColumnDefinition Width="20*"/>
             <ColumnDefinition Width="0*"/>
         </Grid.ColumnDefinitions>
-        <Border BorderBrush="Black" BorderThickness="1" Grid.Column="2" HorizontalAlignment="Left" Height="170" Margin="0,20,0,0" VerticalAlignment="Top" Width="299">
-            <Image x:Name="image"/>
+        <Border BorderBrush="Black" BorderThickness="1" Grid.Column="1" HorizontalAlignment="Left" Height="170" Margin="1,20,0,0" VerticalAlignment="Top" Width="299" Grid.ColumnSpan="2">
+            <Image x:Name="image" HorizontalAlignment="Left" Width="297"/>
         </Border>
-        <Label Content="Link" HorizontalAlignment="Left" Grid.Row="1" Grid.Column="0" VerticalAlignment="Top" Height="40" Width="70" FontSize="21.333" Margin="0,5,0,0"/>
-        <Label Content="Delete &#xD;&#xA;hash" HorizontalAlignment="Left" Grid.Row="2" Grid.Column="0"
-               VerticalAlignment="Top" Height="65" Width="90" FontSize="21.333" Margin="0,10,0,0"/>
-        <Label x:Name="Link_box" Content="" HorizontalAlignment="Left" Grid.Row="1" VerticalAlignment="Top" Height="60" Width="280" FontSize="13.333" Margin="9,5,0,0" Grid.Column="2"/>
-        <Label x:Name="Delete_box" Content="" HorizontalAlignment="Left" Grid.Row="2" VerticalAlignment="Top" Height="65" Width="279" FontSize="13.333" Margin="9,10,0,0" Grid.Column="2"/>
+        <Label Content="Link" HorizontalAlignment="Left" Grid.Row="1" Grid.Column="0" VerticalAlignment="Top" Height="40" Width="70" FontSize="21.333" Margin="10,5,0,0"/>
+        <Label x:Name="Link_box" Content="" HorizontalAlignment="Left" Grid.Row="1" VerticalAlignment="Top" Height="55" Width="280" FontSize="18.667" Margin="10,10,0,0" Grid.Column="1" Grid.ColumnSpan="2"/>
+        <Button x:Name="Upload_button" Content="New upload" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="15,35,0,0" Grid.Row="2" Height="29" Click="Upload_button_Click" FontSize="10.667" Grid.Column="3"/>
+        <Button x:Name="Update_button" Content="Update" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="10,35,0,0" Grid.Row="2" Grid.Column="1" Height="29" FontSize="10.667" Click="Update_button_Click"/>
+        <Button x:Name="Favourite_button" Content="Favourite" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="10,35,0,0" Grid.Row="2" Grid.Column="2" Height="29" FontSize="10.667" Click="Favourite_button_Click"/>
+        <Button x:Name="Delete_button" Content="Delete" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="15,35,0,0" Grid.Row="2" Height="29" FontSize="10.667"/>
 
 
 

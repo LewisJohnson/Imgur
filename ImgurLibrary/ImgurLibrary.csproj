@@ -55,14 +55,15 @@
     <Compile Include="SupportedFileType.cs" />
     <Compile Include="Api Endpoints\Account\Upload.cs" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="Api Endpoints\Album\" />
-    <Folder Include="Api Endpoints\Comment\" />
-    <Folder Include="Api Endpoints\Conversation\" />
-    <Folder Include="Api Endpoints\Custom Gallery\" />
-    <Folder Include="Api Endpoints\Gallery\" />
-    <Folder Include="Api Endpoints\Notification\" />
-    <Folder Include="Api Endpoints\Topic\" />
+    <Content Include="Api Endpoints\Album\TextFile1.txt" />
+    <Content Include="Api Endpoints\Comment\TextFile1.txt" />
+    <Content Include="Api Endpoints\Conversation\TextFile1.txt" />
+    <Content Include="Api Endpoints\Custom Gallery\TextFile1.txt" />
+    <Content Include="Api Endpoints\Gallery\TextFile1.txt" />
+    <Content Include="Api Endpoints\Notification\TextFile1.txt" />
+    <Content Include="Api Endpoints\Topic\TextFile1.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

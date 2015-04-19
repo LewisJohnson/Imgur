@@ -7,18 +7,15 @@
 
 
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition/>
-        </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="120*" />
             <ColumnDefinition Width="647*" />
         </Grid.ColumnDefinitions>
         <Frame Grid.Column="1" x:Name="MainFrame" MinHeight="484" MinWidth="628" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0" FontFamily="Segoe UI Light" NavigationUIVisibility="Hidden"  />
-        <ListBox x:Name="ListBox" Grid.Column="0"  MinHeight="484" MinWidth="110" ScrollViewer.VerticalScrollBarVisibility="Visible"
+        <ListBox x:Name="ListBox" Grid.Column="0"  MinHeight="484" MinWidth="110" ScrollViewer.VerticalScrollBarVisibility="Visible" Padding="5,5,5,5"
         	Margin="5,10" FontSize="18.667" HorizontalAlignment="Center" VerticalAlignment="Center" >
             <Button Content="Authorise" FontFamily="Segoe UI" Click="Authorise_OnMouseDown"/>
-            <Button Content="Account" FontFamily="Segoe UI" Click="Account_OnMouseDown"/>
+            <Button Content="Account" FontFamily="Segoe UI" Click="Account_OnMouseDown" RenderTransformOrigin="0.495,1"/>
             <Separator/>
             <Button Content="Upload" FontFamily="Segoe UI" Click="Upload_OnMouseDown"/>
         </ListBox>

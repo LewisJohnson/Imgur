@@ -10,21 +10,22 @@ namespace ImgurUploader
             InitializeComponent();
         }
 
-        private void Authorise_OnMouseDown(object sender, RoutedEventArgs e)
+        public void Authorise_OnMouseDown(object sender, RoutedEventArgs e)
         {
             MainFrame.NavigationService.Navigate(new Authorise());
         }
 
-        private void Account_OnMouseDown(object sender, RoutedEventArgs e)
+        public void Account_OnMouseDown(object sender, RoutedEventArgs e)
         {
 
 
         }
 
-        private void Upload_OnMouseDown(object sender, RoutedEventArgs e)
+        public void Upload_OnMouseDown(object sender, RoutedEventArgs e)
         {
             MainFrame.NavigationService.Navigate(new Upload());
         }
+
     }
 }
 
